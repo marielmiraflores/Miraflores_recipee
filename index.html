@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Croissant</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <!-- Include Flickity CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css" />
+  <script src="chatbot.js"></script>
+
+</head>
+
+<body>
+  
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <img src="images/Icon.png" alt="Mariel Icon">
+      </div>
+      <ul class="left-menu">
+        <li><a href="#">Home</a></li>
+        <li class="recipes-dropdown">
+          <a href="#">Recipes <i class="fas fa-caret-down"></i></a>
+          <div class="recipes-dropdown-content">
+            <a href="index.html">Croissant</a>
+            <a href="Donut.html">Donut</a>
+            <a href="cupcake.html">Cupcake</a>
+          </div>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="right-menu">
+        <div class="search-box">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <button class="profile-btn"><i class="fas fa-user"></i></button>
+      </div>
+      
+    </div>
+  </nav>
+
+  <div class="recipe-chatbot-container">
+    <div class="gallery">
+      <!-- Add your recipe choices here -->
+      <div class="gallery-cell">
+        <a id="butterCroissantLink" href="#">
+          <img src="images/Croissant.png" alt="Recipe 1">
+          <p>Butter Croissant</p>
+        </a>
+      </div>
+      <div class="gallery-cell">
+        <a id="walnutCroissantLink" href="#">
+          <img src="images/Wallnut Croissant.png" alt="Recipe 2">
+          <p>Walnut</p>
+        </a>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div id="header">
+        <img src="images/Chatbot.png" alt="Chatbot Logo">
+        <h1>Hello!</h1>
+      </div>
+      <div id="message-section">
+        <div class="message" id="user"><span id="user-response">I burnt my croissant. What should I do?</span></div>
+        <div class="message" id="bot"><span id="bot-response">Don't worry! You can scrape off the burnt parts and enjoy the rest. Next time, keep an eye on the oven temperature and cooking time.</span></div>
+        <div class="message" id="user"><span id="user-response">Thank you! Do you have any tips for making croissants flakier?</span></div>
+        <div class="message" id="bot"><span id="bot-response">To make your croissants flakier, make sure to fold the dough properly to create those beautiful layers. Also, use cold butter and let the dough rest in the refrigerator between folds to ensure it stays chilled.</span></div>
+        <div class="message" id="user"><span id="user-response">How many times should I fold the croissant dough?</span></div>
+        <div class="message" id="bot"><span id="bot-response">It depends on the recipe, but typically you fold the dough three times, giving it a total of four folds. This process helps create those flaky layers that croissants are known for.</span></div>
+      </div>
+      <div id="input-section">
+      <input id="input" type="text" placeholder="Type a message" autocomplete="off" autofocus="autofocus"/>
+      <button id="sendButton" class="send" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <div id="walnutCroissantModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Walnut Croissant Recipe</h2>
+      <h3>Ingredients:</h3>
+      <ul>
+        <li>1 batch of croissant dough (follow the recipe above)</li>
+        <li>1 cup finely chopped walnuts</li>
+        <li>1/2 cup granulated sugar</li>
+        <li>1/4 cup unsalted butter, softened</li>
+        <li>1 teaspoon ground cinnamon (optional)</li>
+        <li>Powdered sugar for dusting (optional)</li>
+      </ul>
+      <h3>Instructions:</h3>
+      <ol>
+        <li>Preheat your oven to 375°F (190°C).</li>
+        <li>In a bowl, combine the finely chopped walnuts, granulated sugar, softened butter, and ground cinnamon (if using). Mix until well combined to create the walnut filling.</li>
+        <li>Prepare the croissant dough according to the instructions provided in the previous recipe.</li>
+        <li>After the final rolling and folding of the croissant dough, roll it out into a large rectangle, about 1/4 inch thick.</li>
+        <li>Spread the walnut filling evenly over the rolled-out dough.</li>
+        <li>Starting from one of the long sides of the rectangle, roll the dough tightly into a log.</li>
+        <li>Using a sharp knife, cut the log into slices about 1 inch thick.</li>
+        <li>Place the slices on a baking sheet lined with parchment paper, leaving some space between each slice to allow for rising.</li>
+        <li>Cover the baking sheet with a clean kitchen towel and let the walnut croissants rise in a warm place until they double in size, about 30-45 minutes.</li>
+        <li>Once the croissants have risen, bake them in the preheated oven for 12-15 minutes, or until they are golden brown and cooked through.</li>
+        <li>Remove the walnut croissants from the oven and allow them to cool slightly on a wire rack.</li>
+        <li>If desired, dust the walnut croissants with powdered sugar before serving.</li>
+      </ol>
+    </div>
+  </div>
+  
+  
+  
+<!-- Your HTML content -->
+
+<div id="recipeModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Butter Croissant Recipe</h2>
+    <h3>Ingredients:</h3>
+    <ul>
+      <li>1 package (about 1/4 ounce) active dry yeast</li>
+      <li>1/4 cup warm water (110° to 115° F)</li>
+      <li>1 cup warm milk (110° to 115° F)</li>
+      <li>1/4 cup sugar</li>
+      <li>1 teaspoon salt</li>
+      <li>4 to 4-1/2 cups all-purpose flour</li>
+      <li>1 cup cold butter, cubed</li>
+      <li>1 egg, beaten</li>
+      <li>Additional butter for spreading (about 1/4 cup)</li>
+    </ul>
+    <h3>Instructions:</h3>
+    <ol>
+      <li>In a small bowl, dissolve yeast in warm water. In a large bowl, combine warm milk, sugar, salt, yeast mixture, and 2 cups flour; beat on medium speed until smooth. Stir in enough remaining flour to form a soft dough (dough will be sticky).</li>
+      <li>Turn onto a floured surface; knead until smooth and elastic, about 6-8 minutes. Cover and refrigerate for 1 hour.</li>
+      <li>Meanwhile, pound butter between waxed paper into a 12x6-in. rectangle. Refrigerate until firm, about 30 minutes.</li>
+      <li>Roll dough into a 20x10-in. rectangle. Place butter over two-thirds of dough to within 1/2 in. of edges. Fold unbuttered third over middle third. Fold remaining third over the top, forming a 10x6-in. rectangle. Roll dough into a 20x10-in. rectangle. Fold dough into thirds, starting with a short side. Cover and refrigerate for 1 hour.</li>
+      <li>Repeat rolling and folding twice more. Roll dough into a 16x12-in. rectangle; cut into 12 squares. Cut each square diagonally, forming two triangles.</li>
+      <li>Roll up triangles from the wide ends and place point side down 2 in. apart on greased baking sheets. Curve ends to form crescents. Cover and let rise in a warm place until doubled, about 45 minutes.</li>
+      <li>Preheat oven to 375° F. Brush with beaten egg. Bake until golden brown, 12-15 minutes. Brush with melted butter. Cool on wire racks.</li>
+    </ol>
+  </div>
+</div>
+
+
+
+
+<!-- Include Flickity JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js"></script>
+<!-- Initialize Flickity -->
+<script>
+  var flkty = new Flickity('.gallery', {
+    // options
+    cellAlign: 'left',
+    contain: true,
+    prevNextButtons: true,
+    prevNextButtons: {
+      prevButton: '.custom-prev-button',
+      nextButton: '.custom-next-button'
+    }
+  });
+
+  // Get the "Butter Croissant" link by its ID
+  var butterCroissantLink = document.getElementById('butterCroissantLink');
+
+  // Get the Butter Croissant modal
+  var butterCroissantModal = document.getElementById("recipeModal");
+
+  // Get the "x" button for the Butter Croissant modal
+  var butterCroissantCloseBtn = butterCroissantModal.querySelector(".close");
+
+  // When the user clicks the Butter Croissant link, open the modal
+  butterCroissantLink.onclick = function() {
+    butterCroissantModal.style.display = "block";
+  }
+
+  // When the user clicks on the "x" button, close the Butter Croissant modal
+  butterCroissantCloseBtn.onclick = function() {
+    butterCroissantModal.style.display = "none";
+  }
+
+  // Get the Walnut Croissant link by its ID
+  var walnutCroissantLink = document.getElementById('walnutCroissantLink');
+
+  // Get the Walnut Croissant modal
+  var walnutCroissantModal = document.getElementById("walnutCroissantModal");
+
+  // Get the "x" button for the Walnut Croissant modal
+  var walnutCroissantCloseBtn = walnutCroissantModal.querySelector(".close");
+
+  // When the user clicks the Walnut Croissant link, open the modal
+  walnutCroissantLink.onclick = function() {
+    walnutCroissantModal.style.display = "block";
+  }
+
+  // When the user clicks on the "x" button, close the Walnut Croissant modal
+  walnutCroissantCloseBtn.onclick = function() {
+    walnutCroissantModal.style.display = "none";
+  }
+
+  // Close the modal when the user clicks anywhere outside of it
+  window.onclick = function(event) {
+    if (event.target == butterCroissantModal) {
+      butterCroissantModal.style.display = "none";
+    }
+    if (event.target == walnutCroissantModal) {
+      walnutCroissantModal.style.display = "none";
+    }
+  }
+
+
+</script>
+</body>
+</html>

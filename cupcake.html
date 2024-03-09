@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title img src="images/Icon.png" alt="Your Logo"></title></title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css" />
+  <script src="chatbot.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <img src="images/Icon.png" alt="Mariel Icon">
+      </div>
+      <ul class="left-menu">
+        <li><a href="#">Home</a></li>
+        <li class="recipes-dropdown">
+          <a href="#">Recipes <i class="fas fa-caret-down"></i></a>
+          <div class="recipes-dropdown-content">
+            <a href="index.html">Croissant</a>
+            <a href="Donut.html">Donut</a>
+            <a href="cupcake.html">Cupcake</a>
+          </div>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contacts</a></li>
+      </ul>
+      <div class="right-menu">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+        <button class="profile-btn"><i class="fas fa-user"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="recipe-chatbot-container">
+    <div class="gallery">
+      <div class="gallery-cell">
+        <a id="cupcakeLink" href="#">
+          <img src="images/Strawberry-Cupcakes-and-Frostings-47-683x1024-removebg-preview.png" alt="Cupcake Recipe">
+          <p>Cupcake</p>
+        </a>
+      </div>
+
+      <div class="gallery-cell">
+        <a id="cupcakeLink" href="#">
+          <img src="images/Strawberry-Cupcakes-and-Frostings-47-683x1024-removebg-preview.png" alt="Cupcake Recipe">
+          <p>Cupcake</p>
+        </a>
+      </div>
+    </div>
+  
+    <div class="card">
+        <div id="header">
+          <img src="images/Chatbot.png" alt="Chatbot Logo">
+          <h1>Hello!</h1>
+        </div>
+        <div id="message-section">
+          <div class="message" id="user"><span id="user-response">I burnt my croissant. What should I do?</span></div>
+          <div class="message" id="bot"><span id="bot-response">Don't worry! You can scrape off the burnt parts and enjoy the rest. Next time, keep an eye on the oven temperature and cooking time.</span></div>
+          <div class="message" id="user"><span id="user-response">Thank you! Do you have any tips for making croissants flakier?</span></div>
+          <div class="message" id="bot"><span id="bot-response">To make your croissants flakier, make sure to fold the dough properly to create those beautiful layers. Also, use cold butter and let the dough rest in the refrigerator between folds to ensure it stays chilled.</span></div>
+          <div class="message" id="user"><span id="user-response">How many times should I fold the croissant dough?</span></div>
+          <div class="message" id="bot"><span id="bot-response">It depends on the recipe, but typically you fold the dough three times, giving it a total of four folds. This process helps create those flaky layers that croissants are known for.</span></div>
+        </div>
+        <div id="input-section">
+        <input id="input" type="text" placeholder="Type a message" autocomplete="off" autofocus="autofocus"/>
+        <button id="sendButton" class="send" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <div id="cupcakeModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Cupcake Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+          <li>1 cup all-purpose flour</li>
+          <li>1/2 cup granulated sugar</li>
+          <li>1/2 teaspoon baking powder</li>
+          <li>1/4 teaspoon baking soda</li>
+          <li>1/4 teaspoon salt</li>
+          <li>1/2 cup unsalted butter, melted</li>
+          <li>1/2 cup milk</li>
+          <li>1 large egg</li>
+          <li>1 teaspoon vanilla extract</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+          <li>Preheat oven to 350°F (175°C) and line a muffin pan with cupcake liners.</li>
+          <li>In a large bowl, whisk together flour, sugar, baking powder, baking soda, and salt.</li>
+          <li>In another bowl, mix melted butter, milk, egg, and vanilla extract.</li>
+          <li>Add wet ingredients to dry ingredients and stir until just combined.</li>
+          <li>Divide batter evenly among cupcake liners.</li>
+          <li>Bake for 18-20 minutes or until a toothpick inserted into the center comes out clean.</li>
+          <li>Let cupcakes cool in the pan for 5 minutes, then transfer to a wire rack to cool completely.</li>
+          <li>Decorate with frosting or toppings of your choice.</li>
+          <li>Serve and enjoy your delicious homemade cupcakes!</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js"></script>
+  <script>
+    var flkty = new Flickity('.gallery', {
+      cellAlign: 'left',
+      contain: true,
+      prevNextButtons: true,
+      prevNextButtons: {
+        prevButton: '.custom-prev-button',
+        nextButton: '.custom-next-button'
+      }
+    });
+
+    var cupcakeLink = document.getElementById('cupcakeLink');
+    var cupcakeModal = document.getElementById("cupcakeModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    cupcakeLink.onclick = function() {
+      cupcakeModal.style.display = "block";
+    }
+
+    span.onclick = function() {
+      cupcakeModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == cupcakeModal) {
+        cupcakeModal.style.display ="none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

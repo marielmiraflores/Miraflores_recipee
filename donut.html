@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donut</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <!-- Include Flickity CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css" />
+  <script src="chatbot.js"></script>
+
+</head>
+
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <img src="images/Icon.png" alt="Mariel Icon">
+      </div>
+      <ul class="left-menu">
+        <li><a href="#">Home</a></li>
+        <li class="recipes-dropdown">
+          <a href="#">Recipes <i class="fas fa-caret-down"></i></a>
+          <div class="recipes-dropdown-content">
+            <a href="index.html">Croissant</a>
+            <a href="Donut.html">Donut</a>
+            <a href="cupcake.html">Cupcake</a>
+          </div>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="right-menu">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+        <button class="profile-btn"><i class="fas fa-user"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="recipe-chatbot-container">
+    <div class="gallery">
+      <!-- Add your recipe choices here -->
+      <div class="gallery-cell">
+        <a href="#" id="bavarianLink">
+          <img src="images/Bavarian.png" alt="Recipe 1">
+          <p>Bavarian</p>
+        </a>
+      </div>
+      <div class="gallery-cell">
+        <a id="sprinkledDonutLink" href="#">
+          <img src="images/Sprinkled.png" alt="Recipe 2">
+          <p>Sprinkled Donut</p>
+        </a>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <div id="header">
+        <img src="images/Chatbot.png" alt="Chatbot Logo">
+        <h1>Hello!</h1>
+      </div>
+      <div id="message-section">
+        <div class="message" id="user"><span id="user-response">I burnt my croissant. What should I do?</span></div>
+        <div class="message" id="bot"><span id="bot-response">Don't worry! You can scrape off the burnt parts and enjoy the rest. Next time, keep an eye on the oven temperature and cooking time.</span></div>
+        <div class="message" id="user"><span id="user-response">Thank you! Do you have any tips for making croissants flakier?</span></div>
+        <div class="message" id="bot"><span id="bot-response">To make your croissants flakier, make sure to fold the dough properly to create those beautiful layers. Also, use cold butter and let the dough rest in the refrigerator between folds to ensure it stays chilled.</span></div>
+        <div class="message" id="user"><span id="user-response">How many times should I fold the croissant dough?</span></div>
+        <div class="message" id="bot"><span id="bot-response">It depends on the recipe, but typically you fold the dough three times, giving it a total of four folds. This process helps create those flaky layers that croissants are known for.</span></div>
+      </div>
+      <div id="input-section">
+        <input id="input" type="text" placeholder="Type a message" autocomplete="off" autofocus="autofocus"/>
+        <button id="sendButton" class="send" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <!-- Bavarian Modal -->
+    <div id="bavarianModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Bavarian Donut Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+          <li>1 batch of donut dough (see recipe)</li>
+          <li>1 cup Bavarian cream filling</li>
+          <li>1/2 cup powdered sugar</li>
+          <li>1/4 cup milk</li>
+          <li>1 teaspoon vanilla extract</li>
+          <li>Sprinkles (optional)</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+          <li>Prepare the donut dough according to the recipe provided.</li>
+          <li>Roll out the dough and cut it into donut shapes using a donut cutter.</li>
+          <li>Heat oil in a deep fryer or heavy-bottomed pot to 375°F (190°C).</li>
+          <li>Fry the donuts until they are golden brown, about 1-2 minutes per side.</li>
+          <li>Remove the donuts from the oil and let them drain on a paper towel-lined plate.</li>
+          <li>Prepare the Bavarian cream filling according to the recipe provided.</li>
+          <li>Fill a piping bag fitted with a small round tip with the Bavarian cream.</li>
+          <li>Insert the tip into the side of each donut and pipe the cream into the center.</li>
+          <li>In a small bowl, whisk together the powdered sugar, milk, and vanilla extract to make the glaze.</li>
+          <li>Dip the tops of the filled donuts into the glaze and return them to the wire rack to set.</li>
+          <li>If desired, decorate the glazed donuts with sprinkles while the glaze is still wet.</li>
+          <li>Allow the glaze to set before serving the Bavarian donuts.</li>
+        </ol>
+      </div>
+    </div>
+    <!-- End Bavarian Modal -->
+
+    <!-- Sprinkled Donut Modal -->
+<div id="sprinkledDonutModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Sprinkled Donut Recipe</h2>
+    <h3>Ingredients:</h3>
+    <ul>
+      <li>1 batch of donut dough (see recipe)</li>
+      <li>1 cup powdered sugar</li>
+      <li>2-3 tablespoons milk</li>
+      <li>1 teaspoon vanilla extract</li>
+      <li>Assorted sprinkles</li>
+    </ul>
+    <h3>Instructions:</h3>
+    <ol>
+      <li>Prepare the donut dough according to the recipe provided.</li>
+      <li>Roll out the dough and cut it into donut shapes using a donut cutter.</li>
+      <li>Heat oil in a deep fryer or heavy-bottomed pot to 375°F (190°C).</li>
+      <li>Fry the donuts until they are golden brown, about 1-2 minutes per side.</li>
+      <li>Remove the donuts from the oil and let them drain on a paper towel-lined plate.</li>
+      <li>In a small bowl, whisk together the powdered sugar, milk, and vanilla extract to make the glaze.</li>
+      <li>Dip the tops of the cooled donuts into the glaze, allowing any excess glaze to drip off.</li>
+      <li>Immediately sprinkle the glazed donuts with assorted sprinkles before the glaze sets.</li>
+      <li>Place the glazed and sprinkled donuts on a wire rack to set completely.</li>
+      <li>Enjoy the delicious homemade sprinkled donuts!</li>
+    </ol>
+  </div>
+</div>
+<!-- End Sprinkled Donut Modal -->
+
+
+
+  
+  </div>
+
+  <!-- Include Flickity JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js"></script>
+  <!-- Initialize Flickity -->
+  <script>
+    var flkty = new Flickity('.gallery', {
+      // options
+      cellAlign: 'left',
+      contain: true,
+      prevNextButtons: true,
+      prevNextButtons: {
+        prevButton: '.custom-prev-button',
+        nextButton: '.custom-next-button'
+      }
+    });
+
+    <!-- Your HTML content -->
+
+  // Get the "Bavarian" link by its ID
+  var bavarianLink = document.getElementById('bavarianLink');
+  // Get the "Bavarian" modal
+  var bavarianModal = document.getElementById("bavarianModal");
+  // Get the "x" button element for the Bavarian modal
+  var bavarianCloseBtn = bavarianModal.querySelector(".close");
+
+  // When the user clicks the "Bavarian" link, open the modal
+  bavarianLink.onclick = function() {
+    bavarianModal.style.display = "block";
+  }
+
+  // When the user clicks on the "x" button for Bavarian modal, close the modal
+  bavarianCloseBtn.onclick = function() {
+    bavarianModal.style.display = "none";
+  }
+
+  // Get the "Sprinkled Donut" link by its ID
+  var sprinkledDonutLink = document.getElementById('sprinkledDonutLink');
+  // Get the "Sprinkled Donut" modal
+  var sprinkledDonutModal = document.getElementById("sprinkledDonutModal");
+  // Get the "x" button element for the Sprinkled Donut modal
+  var sprinkledDonutCloseBtn = sprinkledDonutModal.querySelector(".close");
+
+  // When the user clicks the "Sprinkled Donut" link, open the modal
+  sprinkledDonutLink.onclick = function() {
+    sprinkledDonutModal.style.display = "block";
+  }
+
+  // When the user clicks on the "x" button for Sprinkled Donut modal, close the modal
+  sprinkledDonutCloseBtn.onclick = function() {
+    sprinkledDonutModal.style.display = "none";
+  }
+
+  // Close the modal when the user clicks anywhere outside of it
+  window.onclick = function(event) {
+    if (event.target == bavarianModal) {
+      bavarianModal.style.display = "none";
+    }
+    if (event.target == sprinkledDonutModal) {
+      sprinkledDonutModal.style.display = "none";
+    }
+  }
+
+</script>
+
+</body>
+
+</html>
